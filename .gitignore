@@ -13,6 +13,7 @@ develop-eggs/
 dist/
 downloads/
 eggs/
+x*.ipynb
 .eggs/
 lib/
 lib64/
