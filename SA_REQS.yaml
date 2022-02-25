@@ -1,0 +1,52 @@
+---
+# Paths
+paths:
+      key: "SAREQ_00" # for filenames mainly now.
+      projectPath: "/Users/theresasawi/Documents/12_Projects/sareq_sawietal/" # path to the main project directory
+      pathCat:     "/Users/theresasawi/Documents/12_Projects/sareq_sawietal/data/raw/catall.txt" # path to where the catalog resides, including the file name
+      pathWF:      "/Users/theresasawi/Documents/12_Projects/sareq_sawietal/data/raw/BAV.waves/" # path to directory where the waveform files are
+      h5name: 'SAREQ_00.h5' # if we want it to be different from the key !
+
+# Raw data parameters
+dataParams:
+      network: 'NC' # SEED format for network, station, channel
+      station: 'BAV'
+      channel: 'EHZ'
+      channel_ID: 0 # the index number for an obspy stream object
+      sampling_rate: 100 #Hz
+      filetype: '' #.SAC .txt
+
+# Spectrogram parameters
+sgramParams:
+      sgramType: "spectrogram"
+      fmin: 3 # minimum frequency in the spectrogram
+      fmax: 20 # maximum frequency in the spectrogram
+      winLen_Sec: .5 # window length in seconds
+      fracOverlap: 0.5 # window overlap fraction
+      nfft: 2024  # padding # isnt this supposed to be a power of 2 ?
+
+#sgramType: "scalogram" # if you are using wavelets
+# other wavelet-specific parameters
+
+# SpecUFEx parameters
+specufexParams:
+      N_patterns_NMF: 75 # initiate NMF with this many N_patterns (max, then shrinks)
+      nmf_batchsz: 100000 # batch size for nmf fit
+      nmf_nbatch: 1 # number of batches
+      N_states_HMM: 15 # number of states for HMM (fixed at this value)
+      hmm_batchsz: 100000 #batch size for hmm fit
+      hmm_nbatch: 1 # number of batches
+
+# Clustering parameters
+clusteringParams: # toggles are 0=off, 1=on
+      Kmax: 3 #maximum number of clusters to try kmeans
+      numPCA: 3
+      runSilhouette: 'True'
+      toggleFprints: 1
+      toggleSpectra: 0
+      togglePCs: 0
+      K_vals: [2,3,4,5,6]
+      K_save: 'K_opt' # or [5] a list of ints from K_vals ?
+
+
+... # three dots ends the yaml file

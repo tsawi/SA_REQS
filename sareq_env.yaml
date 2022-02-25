@@ -1,0 +1,23 @@
+name: sareq
+channels:
+  - conda-forge
+  - defaults
+  - intel #for Scikit-learn
+dependencies:
+  - python=3.8
+  - h5py
+  - jupyter
+  - jupyterlab
+  - librosa
+  - matplotlib
+  - nodejs #for jupyter widgets
+  - numpy
+  - obspy
+  - pandas
+  - pip
+  - pygmt
+  - pytables
+  - pyyaml
+  - scikit-learn
+  - scipy
+  - seaborn

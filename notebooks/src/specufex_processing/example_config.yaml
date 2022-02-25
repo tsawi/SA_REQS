@@ -1,0 +1,51 @@
+---
+# Paths
+paths:
+      key: "key" # for filenames mainly now.
+      projectPath: "project/path/" # path to the main project directory
+      pathCat: "cat/path/wf_cat.csv" # path to where the catalog resides, including the file name
+      pathWF: "WF/path/" # path to directory where the waveform files are
+      h5name: 'filename.h5' # if we want it to be different from the key !
+
+# Raw data parameters
+dataParams:
+      network: 'N' # SEED format for network, station, channel
+      station: 'N'
+      channel: 'N'
+      channel_ID: 0 # the index number for an obspy stream object
+      sampling_rate: 100 #Hz
+      filetype: '.mseed' #.SAC .txt
+
+# Spectrogram parameters
+sgramParams:
+      sgramType: "spectrogram"
+      fmin: 8 # minimum frequency in the spectrogram
+      fmax: 20 # maximum frequency in the spectrogram
+      winLen_Sec: 1 # window length in seconds
+      fracOverlap: 0.25 # window overlap fraction
+      nfft: 2000  # padding # isnt this supposed to be a power of 2 ?
+
+#sgramType: "scalogram" # if you are using wavelets
+# other wavelet-specific parameters
+
+# SpecUFEx parameters
+specufexParams:
+      N_patterns_NMF: 75 # initiate NMF with this many N_patterns (max, then shrinks)
+      nmf_batchsz: 1 # batch size for nmf fit
+      nmf_nbatch: 1 # number of batches
+      N_states_HMM: 15 # number of states for HMM (fixed at this value)
+      hmm_batchsz: 1 #batch size for hmm fit
+      hmm_nbatch: 1 # number of batches
+
+# Clustering parameters
+clusteringParams: # toggles are 0=off, 1=on
+      numPCA: 3
+      runSilhouette: 'False'
+      toggleFprints: 1
+      toggleSpectra: 0
+      togglePCs: 0
+      K_vals: [2,3,4,5,6]
+      K_save: 'K_opt' # or [5] a list of ints from K_vals ?
+
+
+... # three dots ends the yaml file

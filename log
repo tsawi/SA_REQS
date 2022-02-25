@@ -1,0 +1,41 @@
+I went further north along the SAF where things are simpler and creep rates more consistent over the 40 year time period. I identified a 16 event repeater, and selected all events within 5 km distance from it. Some 4000 events. I picked the station that was operational since 1984 and has the most correlated seismograms, which is BAV. BAV is about 20 km alway from the repeater, in the dilational quadrant on the american plate. 
+
+Everything is in:
+https://www.ldeo.columbia.edu/~felixw/specufex/RES1/
+
+RES1_5km.cat: catalog of earthquakes within 5 km of a ’super’ repeater. 
+RES1_BAV_20s.tgz: 20 sec long vertical component waveforms from station BAV starting at event origin time, in mseed format. last number in file name is event id. 
+repq_R1.0854.6617.0.C: catalog of 16 repeating events. First line is sequence header line, followed by 16 events, with first parameter being event ID. 
+
+Hope that is all you need, let me know if not. Should be fun, curious to see what’s fexing… -Felix 
+
+
+
+
+Not all the events in the catalog have picks at station BAV, so there are fewer events in the pick file. 
+
+
+
+
+
+
+
+**** 3 repeater series ****
+
+
+Your presentation made me look for the repeating event data we talked about, I think it is time to have a data set that, in its simplest form, would allow us to predict what specufex should produce. I put together a data set with three repeating event sequences from the San Andreas Fault near Parkfield (the SAFOD target events). The sequences are a few hundred meters apart, two on the same fault strand, one on a parallel fault strand. The only issue we might run into is that there aren’t a lot of events (13 in seqs SF and LA, 11 in HI). The data is in:
+https://www.ldeo.columbia.edu/~felixw/specufex/
+
+I would start with station PCA as it is off-fault and probably cleaner. The seismograms are 5 minutes long, I think you could cut them down to 2 minutes after start of seismogram (which is event origin time).
+
+The data is in SAC and mseed format, but I think Ben already loaded them up into a specufex readable environment some time ago?
+
+Here are some of the tests that could be done:
+1) Specufex SF and LA seismograms together, at station PCA for example, choose k=2 and you should recover the two sequences, assuming specufex picks up the slight differences in spectral content between the two sequences.
+2) Specufex SF, LA, and HI seismograms together, again at station PCA, choose k=3 and you should recover the three sequences.
+3) Once we know that specufex can separate repeating events into their respective sequence, we can add other events in the neighborhood of the repeaters, and let specufex find the repeating events out of many non-repeating events.
+
+If step 3) is successful, then we have a tool that can automatically find repeating events, given a baseline catalog. That would be an important short paper.
+
+Hope this all makes sense. Let me know if not. Cheers - Felix
+
